@@ -49,15 +49,15 @@ _start:
 	slli	a2,	a2, 16       //a2 = 0x82280000
 	load_data a0,a1,a2
 
-	# //load trusted_domain_fw.bin
-	# //[0x20400000:0x20800000] --> [0xBF800000:0xBFC00000]
-    # li		a0,	0x204
-	# slli	a0,	a0, 20      //a0 = 0x20400000
-    # li		a1,	0xbf8
-	# slli	a1,	a1, 20      //a1 = 0xbf800000
-    # li		a2,	0xbfc
-	# slli	a2,	a2, 20      //a2 = 0xbfc00000
-	# load_data a0,a1,a2
+	//load trusted_domain_fw.bin
+	//[0x20400000:0x20800000] --> [0xBF800000:0xBFC00000]
+    li		a0,	0x204
+	slli	a0,	a0, 20      //a0 = 0x20400000
+    li		a1,	0xbf8
+	slli	a1,	a1, 20      //a1 = 0xbf800000
+    li		a2,	0xbfc
+	slli	a2,	a2, 20      //a2 = 0xbfc00000
+	load_data a0,a1,a2
 
 	//[0x20400000:0x20800000] --> [0xBF800000:0xBFC00000]
     li		a0,	0x204

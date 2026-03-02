@@ -1,0 +1,7 @@
+set disassemble-next-line on
+watch *(uint64_t*)0x14fe8
+watch *(uint64_t*)0x80287fe8
+b trap_return
+b __sys_yield
+target remote : 1234
+c
