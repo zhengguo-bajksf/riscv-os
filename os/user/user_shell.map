@@ -1,0 +1,77 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /tmp/ccz3jvpJ.o
+LOAD /tmp/ccsYoAQJ.o
+LOAD /tmp/cciz6S6K.o
+                0x0000000000010000                BASE_ADDRESS = 0x10000
+                0x0000000000010000                . = BASE_ADDRESS
+
+.text           0x0000000000010000      0x8b4
+ *(.text.entry)
+ *(.text .text.*)
+ .text          0x0000000000010000      0x158 /tmp/ccz3jvpJ.o
+                0x0000000000010000                main
+ .text          0x0000000000010158      0x5d0 /tmp/ccsYoAQJ.o
+                0x0000000000010618                user_printf
+                0x0000000000010670                strncat
+                0x00000000000106ea                user_strlen
+ .text          0x0000000000010728      0x18c /tmp/cciz6S6K.o
+                0x0000000000010728                user_syscall
+                0x000000000001075c                user_yield
+                0x000000000001077a                user_get_time
+                0x0000000000010798                user_set_trigger
+                0x00000000000107b6                user_getchar
+                0x00000000000107dc                user_fork
+                0x00000000000107fe                sys_exec
+                0x0000000000010828                sys_exit
+                0x0000000000010850                user_recycle
+                0x0000000000010872                delay
+                0x0000000000011000                . = ALIGN (0x1000)
+
+.rodata         0x0000000000011000       0xcc
+ *(.rodata .rodata.*)
+ .rodata        0x0000000000011000       0x4b /tmp/ccz3jvpJ.o
+ *fill*         0x000000000001104b        0x5 
+ .rodata        0x0000000000011050       0x7c /tmp/ccsYoAQJ.o
+ *(.srodata .srodata.*)
+                0x0000000000012000                . = ALIGN (0x1000)
+
+.data           0x0000000000012000        0x0
+ *(.data .data.*)
+ .data          0x0000000000012000        0x0 /tmp/ccz3jvpJ.o
+ .data          0x0000000000012000        0x0 /tmp/ccsYoAQJ.o
+ .data          0x0000000000012000        0x0 /tmp/cciz6S6K.o
+ *(.sdata .sdata.*)
+
+.bss            0x0000000000012000      0x3e8
+ *(.bss .bss.*)
+ .bss           0x0000000000012000        0x0 /tmp/ccz3jvpJ.o
+ .bss           0x0000000000012000      0x3e8 /tmp/ccsYoAQJ.o
+ .bss           0x00000000000123e8        0x0 /tmp/cciz6S6K.o
+ *(.sbss .sbss.*)
+
+/DISCARD/
+ *(.eh_frame)
+ *(.debug*)
+OUTPUT(bin/user_shell elf64-littleriscv)
+
+.comment        0x0000000000000000        0xf
+ .comment       0x0000000000000000        0xf /tmp/ccz3jvpJ.o
+                                         0x10 (size before relaxing)
+ .comment       0x000000000000000f       0x10 /tmp/ccsYoAQJ.o
+ .comment       0x000000000000000f       0x10 /tmp/cciz6S6K.o
+
+.riscv.attributes
+                0x0000000000000000       0x53
+ .riscv.attributes
+                0x0000000000000000       0x53 /tmp/ccz3jvpJ.o
+ .riscv.attributes
+                0x0000000000000053       0x53 /tmp/ccsYoAQJ.o
+ .riscv.attributes
+                0x00000000000000a6       0x53 /tmp/cciz6S6K.o
